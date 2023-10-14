@@ -1,0 +1,56 @@
+<!-- team-listing.component.html -->
+<div id="parent">
+  <div class="col-md-100">
+    <h2 class="mt-4">Add Teams</h2>
+    <div class="card">
+      <div class="card-header">
+        <h2 class="text-center">{{ isEditing ? "Edit" : "Add" }} Team</h2>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="teamForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="teamID">Team ID</label>
+            <input
+              type="number"
+              formControlName="teamID"
+              class="form-control"
+              placeholder="Enter Team ID"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="teamName">Team Name</label>
+            <input
+              type="text"
+              formControlName="teamName"
+              class="form-control"
+              placeholder="Enter Team Name"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">
+            {{ isEditing ? "Save" : "Submit" }}
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-100">
+    <h2 class="mt-4">Teams</h2>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let team of teams">
+        <h3>{{ team.teamName }}</h3>
+        <p><strong>Team ID:</strong> {{ team.teamID }}</p>
+        <span class="float-right">
+          <button mat-icon-button (click)="populateFormForEdit(team)">
+            <i class="material-icons">edit</i>
+          </button>
+          <button mat-icon-button (click)="deleteTeam(team)">
+            <i class="material-icons">delete</i>
+          </button>
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>

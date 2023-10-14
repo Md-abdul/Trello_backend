@@ -1,0 +1,59 @@
+/* navbar.component.css */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Adjust the z-index as needed */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #3498db; 
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+  width: 50px;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+li {
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+li:hover {
+  color: #ecf0f1;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+a:hover {
+  color: #2c3e50;
+}
+
+button{
+  width: 80px;
+  height: 40px;
+  background-color: #e41f0d; /* Green background color */
+  color: white; /* White text color */
+  border: none; /* Remove borders */
+  border-radius: 5px; /* Optional: Add some border radius */
+  font-size: 16px; /* Set font size */
+  cursor: pointer; /* Add a pointer cursor on hover */
+}
+
+button:hover{
+  background-color: #e3442c; /* Darker green on hover */
+}

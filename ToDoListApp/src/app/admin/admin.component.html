@@ -1,0 +1,25 @@
+<!-- admin.component.html -->
+<div class="admin-container">
+  <div class="dashboard">
+    <h2>Admin Dashboard</h2>
+    <ul>
+      <li>
+        <a routerLink="/admin/projects" routerLinkActive="active"
+          >Project Listing</a
+        >
+      </li>
+      <li>
+        <a routerLink="/admin/tasks" routerLinkActive="active">Task Listing</a>
+      </li>
+      <li>
+        <a routerLink="/admin/teams" routerLinkActive="active">Team Listing</a>
+      </li>
+      <li>
+        <a routerLink="/admin/users" routerLinkActive="active">User Listing</a>
+      </li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

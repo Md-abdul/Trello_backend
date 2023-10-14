@@ -1,0 +1,30 @@
+<!-- //https://o.remove.bg/downloads/860c3eba-0d91-4d5f-a044-14d6f257487c/Trello_Logo_-_Download_Free_Vector_PNG-removebg-preview.png -->
+<!-- navbar.component.html -->
+
+<nav>
+  <div class="logo">
+    <a routerLink="/homepage"
+      ><img
+        src=""
+        alt=""
+      />Trello</a
+    >
+  </div>
+  <ul>
+    <li><a routerLink="/admin">Admin</a></li>
+    <li><a href="/employetask">Employe Task</a></li>
+
+    <!-- Show username and logout button if logged in -->
+    <ng-container *ngIf="isLoggedIn">
+      <li>{{ username }}</li>
+      <li><button (click)="logout()">Logout</button></li>
+    </ng-container>
+<!-- <li><a href="/employetask">Employe Task</a></li> -->
+    <!-- Show login and signup if not logged in -->
+    <ng-container *ngIf="!isLoggedIn">
+      
+      <li><a routerLink="/login">Login</a></li>
+      <li><a routerLink="/signup">Signup</a></li>
+    </ng-container>
+  </ul>
+</nav>

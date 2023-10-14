@@ -1,0 +1,98 @@
+<div id="parent">
+  <div class="col-md-100">
+    <h2 class="mt-4">Add Projects</h2>
+    <div class="card">
+      <div class="card-header">
+        <h2 class="text-center">{{ isEditing ? "Edit" : "Add" }} Project</h2>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="projectId">Project ID</label>
+            <input
+              type="number"
+              formControlName="projectId"
+              class="form-control"
+              placeholder="Enter Project ID"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              formControlName="name"
+              class="form-control"
+              placeholder="Enter Project Name"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea
+              formControlName="description"
+              class="form-control"
+              placeholder="Enter Project Description"
+              required
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="startDate">Start Date</label>
+            <input
+              type="date"
+              formControlName="startDate"
+              class="form-control"
+              placeholder="Enter Start Date"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="endDate">End Date</label>
+            <input
+              type="date"
+              formControlName="endDate"
+              class="form-control"
+              placeholder="Enter End Date"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="projectManager">Project Manager</label>
+            <input
+              type="text"
+              formControlName="projectManager"
+              class="form-control"
+              placeholder="Enter Project Manager"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">
+            {{ isEditing ? "Save" : "Submit" }}
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-100">
+    <h2 class="mt-4">Projects</h2>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let project of projects">
+        <h3>{{ project.name }}</h3>
+        <p><strong>Project ID:</strong> {{ project.projectId }}</p>
+        <p><strong>Description:</strong> {{ project.description }}</p>
+        <p><strong>Start Date:</strong> {{ project.startDate }}</p>
+        <p><strong>End Date:</strong> {{ project.endDate }}</p>
+        <p><strong>Project Manager:</strong> {{ project.projectManager }}</p>
+        <span class="float-right">
+          <button mat-icon-button (click)="populateFormForEdit(project)">
+            <i class="material-icons">edit</i>
+          </button>
+          <button mat-icon-button (click)="deleteProject(project)">
+            <i class="material-icons">delete</i>
+          </button>
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>

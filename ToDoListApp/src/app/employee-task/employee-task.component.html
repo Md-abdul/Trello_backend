@@ -1,0 +1,68 @@
+<!-- <div *ngIf="projects && tasks">
+    <h2>Employee Task Dashboard</h2>
+  
+    <div class="card-container">
+       Display project cards -->
+<!-- <div *ngFor="let project of projects" class="card project-card">
+        
+        <h3>{{ project.name }}</h3>
+        <p>{{ project.description }}</p>
+        <p><strong>Project Manager:</strong> {{ project.projectManager }}</p>
+        <p><strong>Start Date:</strong> {{ project.startDate | date: 'shortDate' }}</p>
+        <p><strong>End Date:</strong> {{ project.endDate | date: 'shortDate' }}</p>
+      </div> -->
+
+<!-- Display task cards -->
+<!-- <div *ngFor="let task of tasks" class="card task-card">
+        <p>TASKS</p>
+        <h3>{{ task.title }}</h3>
+        <p>{{ task.description }}</p>
+        <p><strong>Due Date:</strong> {{ task.dueDate | date: 'shortDate' }}</p>
+        <p><strong>Priority:</strong> {{ task.priority }}</p>
+        <p><strong>Status:</strong> {{ task.status }}</p>
+      </div>
+    </div>
+  </div> -->
+
+<!-- employee-task.component.html -->
+<div *ngIf="projects && tasks">
+  <h2>Employee Task Dashboard</h2>
+
+  <!-- Navigation buttons to toggle between projects and tasks -->
+  <div class="navigation-buttons">
+    <button (click)="toggleView(true)">Show Projects</button>
+    <button (click)="toggleView(false)">Show Tasks</button>
+  </div>
+
+  <div class="card-container">
+    <!-- Display project cards -->
+    <div *ngIf="showProjects">
+      <div *ngFor="let project of projects" class="card project-card">
+        <h3><strong>Project Name: </strong> {{ project.name }}</h3>
+        <p><strong>Project description:</strong> {{ project.description }}</p>
+        <p><strong>Project Manager:</strong> {{ project.projectManager }}</p>
+        <p>
+          <strong>Start Date:</strong>
+          {{ project.startDate | date : "shortDate" }}
+        </p>
+        <p>
+          <strong>End Date:</strong> {{ project.endDate | date : "shortDate" }}
+        </p>
+      </div>
+    </div>
+
+    <!-- Display task cards -->
+    <div *ngIf="!showProjects">
+      <div *ngFor="let task of tasks" class="card task-card">
+        <p>TASKS</p>
+        <h3><strong>Task Title:</strong>{{ task.title }}</h3>
+        <h4><strong>Task description:</strong>{{ task.description }}</h4>
+        <p>
+            <strong>Due Date:</strong> {{ task.dueDate | date : "shortDate" }}
+        </p>
+        <p><strong>Priority:</strong> {{ task.priority }}</p>
+        <p><strong>Status:</strong> {{ task.status }}</p>
+      </div>
+    </div>
+  </div>
+</div>

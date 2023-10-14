@@ -1,0 +1,58 @@
+/* admin.component.css */
+
+.admin-container {
+  display: flex;
+}
+
+.dashboard {
+  width: 20%;
+  background-color: #2c3e50; /* Updated background color to a darker shade */
+  padding: 20px;
+  border-right: 2px solid #34495e; /* Added border for separation */
+}
+
+.dashboard h2 {
+  font-size: 1.8rem; /* Increased font size for better visibility */
+  margin-bottom: 15px; /* Increased margin for better spacing */
+  border-bottom: 2px solid #ecf0f1; /* Added a bottom border for emphasis */
+  padding-bottom: 8px; /* Added padding for better spacing */
+  color: green;
+  font-family: sans-serif;
+}
+
+.dashboard ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px; /* Reduced margin-top for better alignment */
+  font-family: sans-serif;
+  font-size: 20px;
+}
+
+.dashboard li {
+  margin-bottom: 12px; /* Increased margin for better spacing */
+  transition: background-color 0.3s ease; /* Added a smooth transition effect */
+}
+
+.dashboard li:hover {
+  background-color: #34495e; /* Darker background on hover for better feedback */
+}
+
+.dashboard a {
+  text-decoration: none;
+  color: #ecf0f1; /* Lighter text color for better contrast */
+  font-weight: bold;
+  transition: color 0.3s ease; /* Added a smooth transition effect */
+}
+
+.dashboard a:hover {
+  color: #3498db; /* Changed color on hover for better feedback */
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.main-content {
+  background-color: aqua;
+}

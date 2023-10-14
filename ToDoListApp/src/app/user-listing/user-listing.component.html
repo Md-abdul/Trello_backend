@@ -1,0 +1,107 @@
+<!-- user-listing.component.html -->
+<div id="parent">
+    <div class="col-md-100">
+      <h2 class="mt-4">Add Users</h2>
+      <div class="card">
+        <div class="card-header">
+          <h2 class="text-center">{{ isEditing ? "Edit" : "Add" }} User</h2>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input
+                type="text"
+                formControlName="username"
+                class="form-control"
+                placeholder="Enter Username"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                formControlName="email"
+                class="form-control"
+                placeholder="Enter Email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                formControlName="password"
+                class="form-control"
+                placeholder="Enter Password"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="position">Position</label>
+              <input
+                type="text"
+                formControlName="position"
+                class="form-control"
+                placeholder="Enter Position"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="role">Role</label>
+              <input
+                type="text"
+                formControlName="role"
+                class="form-control"
+                placeholder="Enter Role"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">
+              {{ isEditing ? "Save" : "Submit" }}
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-md-100">
+      <h2 class="mt-4">Users</h2>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let user of users">
+          <h3>{{ user.username }}</h3>
+          <p><strong>Email:</strong> {{ user.email }}</p>
+          <p><strong>Position:</strong> {{ user.position }}</p>
+          <!-- <p><strong>Password:</strong> {{ user.password.replace(/./g, '*') }}</p> -->
+          <p><strong>Password:</strong> {{ maskPassword(user.password) }}</p>
+          <p><strong>Role:</strong> {{ user.role }}</p>
+          <span class="float-right">
+            <button mat-icon-button (click)="populateFormForEdit(user)">
+              <i class="material-icons">edit</i>
+            </button>
+            <button mat-icon-button  (click)="deleteUser(user)">
+              <i class="material-icons">delete</i>
+            </button>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+
+  <!-- <ul class="list-group">
+    <li class="list-group-item" *ngFor="let user of users">
+      <h3>{{ user.username }}</h3>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      Add other user properties as needed -->
+      <!-- <span class="float-right">
+        <button mat-icon-button (click)="populateFormForEdit(user)">
+          <i class="material-icons">edit</i>
+        </button>
+        <button mat-icon-button (click)="deleteUser(user)">
+          <i class="material-icons">delete</i>
+        </button>
+      </span>
+    </li>
+  </ul> -->
